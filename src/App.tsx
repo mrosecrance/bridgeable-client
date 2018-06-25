@@ -2,6 +2,7 @@ import * as React from 'react';
 import './App.css';
 
 import logo from './bridgeable.png';
+import {List} from "./message_table";
 
 class App extends React.Component {
   public render() {
@@ -13,6 +14,7 @@ class App extends React.Component {
         <p className="App-intro">
           Hello World!
         </p>
+        <List/>
       </div>
     );
   }
