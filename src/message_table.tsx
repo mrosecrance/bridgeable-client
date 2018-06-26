@@ -16,6 +16,7 @@ interface IListState {
 export class List extends React.Component<any, IListState> {
     constructor(props: any) {
         super(props);
+        this.state = {people: [] as any[]} as IListState
     }
 
     public componentDidMount() {

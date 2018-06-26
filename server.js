@@ -2,9 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const Bundler = require('parcel-bundler');
-const PORT = Number(process.env.PORT || 1234);
+const PORT = Number(process.env.PORT || 3000);
 
-let bundler = new Bundler('src/index.html');
+// let bundler = new Bundler('src/index.tsx');
 let app = express();
 
 app.use(bodyParser.json());
@@ -33,6 +33,6 @@ app.post('/api/send', (req, res) => {
         .done();
 });
 
-app.use(bundler.middleware());
+// app.use(bundler.middleware());
 
 app.listen(PORT);
