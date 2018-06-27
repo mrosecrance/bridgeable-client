@@ -1,5 +1,4 @@
 import * as React from "react";
-import {ChangeEvent} from "react";
 import {IPerson} from "./message_table";
 
 export default class Message extends React.Component<any, IPerson> {
@@ -14,8 +13,8 @@ export default class Message extends React.Component<any, IPerson> {
     }
 
 
-    public changeMessage = (event: ChangeEvent) => {
-        this.setState({message: (event.target.nodeValue || "")});
+    public changeMessage = (event: any) => {
+        this.setState({message: (event.target.value)});
     };
 
 

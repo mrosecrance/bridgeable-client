@@ -55,8 +55,6 @@ export class List extends React.Component<any, IListState> {
             )
         }
 
-        // tslint:disable-next-line:no-console
-        console.log("GOt here");
         return (
             <div className="container">
                 <div className="row">
