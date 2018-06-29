@@ -19,7 +19,7 @@ export default class Message extends React.Component<any, IPerson> {
 
 
     public sendSms = () => {
-        fetch('/api/send', {
+        fetch('bridgeable-server.cfapps.io/api/send', {
             body: JSON.stringify({message: this.state.message, receiver: this.state.receiver}),
             headers: {
                 Accept: 'application/JSON',

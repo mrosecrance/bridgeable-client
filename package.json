@@ -5,10 +5,12 @@
   "dependencies": {
     "@types/papaparse": "^4.5.0",
     "@types/twilio": "0.0.9",
+    "bootstrap": "^3.3.7",
     "papaparse": "^4.5.0",
     "parcel-bundler": "^1.9.3",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react": "^16.4.1",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.4.1",
     "react-scripts-ts": "2.16.0",
     "twilio": "^3.17.4"
   },
