@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/auth0-js": "^8.11.2",
     "@types/papaparse": "^4.5.0",
     "@types/twilio": "0.0.9",
+    "auth0-js": "^9.6.1",
     "bootstrap": "^3.3.7",
     "papaparse": "^4.5.0",
     "parcel-bundler": "^1.9.3",

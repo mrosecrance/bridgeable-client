@@ -1,6 +1,7 @@
 import * as Papa from 'papaparse'
 import * as React from "react";
 import Message from './message';
+import Auth from './Auth';
 
 export interface IPerson{
     receiver: number,
@@ -47,6 +48,8 @@ export class List extends React.Component<any, IListState> {
 
 
     public render() {
+        const auth = new Auth();
+        auth.login();
         const rows = [];
         for (let i = 0; i < this.state.people.length; i++) {
             const person = this.state.people[i];
