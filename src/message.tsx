@@ -19,18 +19,21 @@ export default class Message extends React.Component<any, IPerson> {
 
 
     public sendSms = () => {
-        fetch('bridgeable-server.cfapps.io/api/send', {
+        const URL = process.env.REACT_APP_SERVER_URL;
+
+        fetch(URL + '/api/send', {
             body: JSON.stringify({message: this.state.message, receiver: this.state.receiver}),
             headers: {
                 Accept: 'application/JSON',
-                'Content-Type': 'application/JSON'
-            },
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/JSON',
+    },
             method: 'POST',
         })
-            .then(resp => resp.json())
             .then(resp => {
                 // tslint:disable-next-line:no-console
-                console.log(resp)
+                console.log(resp, URL, URL + '/api/send');
+                resp.json()
             })
     };
 

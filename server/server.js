@@ -17,6 +17,8 @@ app.post('/api/send', (req, res) => {
     let TOKEN = process.env.TWILIO_TOKEN;
     let SENDER = process.env.TWILIO_SENDER;
 
+    res.set('Access-Control-Allow-Origin','*');
+
     if (!SID || !TOKEN) {
         return res.json({message: 'add TWILIO_SID and TWILIO_TOKEN to .env file.'})
     }
