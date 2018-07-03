@@ -2,12 +2,15 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const Bundler = require('parcel-bundler');
-const PORT = Number(process.env.PORT || 3000);
+const PORT = Number(process.env.PORT);
 
 // let bundler = new Bundler('src/index.tsx');
 let app = express();
 
 app.use(bodyParser.json());
+app.get('/status',(req, res) => {
+    return res.json({message: "ok"});
+});
 
 app.post('/api/send', (req, res) => {
     let SID = process.env.TWILIO_SID;
