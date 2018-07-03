@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const Bundler = require('parcel-bundler');
 const PORT = Number(process.env.PORT);
 
-// let bundler = new Bundler('src/index.tsx');
 let app = express();
 
 app.use(bodyParser.json());
@@ -12,12 +11,18 @@ app.get('/status',(req, res) => {
     return res.json({message: "ok"});
 });
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+
 app.post('/api/send', (req, res) => {
+    console.log('Received a request to send to ', req.body.receiver, ' the message ', req.body.message);
     let SID = process.env.TWILIO_SID;
     let TOKEN = process.env.TWILIO_TOKEN;
     let SENDER = process.env.TWILIO_SENDER;
-
-    res.set('Access-Control-Allow-Origin','*');
 
     if (!SID || !TOKEN) {
         return res.json({message: 'add TWILIO_SID and TWILIO_TOKEN to .env file.'})
@@ -31,13 +36,10 @@ app.post('/api/send', (req, res) => {
             from: SENDER,
             to: req.body.receiver,
         })
-        .then(message => {
-            // tslint:disable-next-line:no-console
-            console.log(message.sid)
+        .then(() => {
+            console.log('Sent request to Twilio successfully')
         })
         .done();
 });
-
-// app.use(bundler.middleware());
 
 app.listen(PORT);

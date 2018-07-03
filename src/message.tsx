@@ -9,6 +9,7 @@ export default class Message extends React.Component<any, IPerson> {
             last_name: props.person['Last Name'],
             message: 'This is the standard message we are sending',
             receiver: props.person['Phone Number'],
+            sentState: ''
         };
     }
 
@@ -25,15 +26,21 @@ export default class Message extends React.Component<any, IPerson> {
             body: JSON.stringify({message: this.state.message, receiver: this.state.receiver}),
             headers: {
                 Accept: 'application/JSON',
-                'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/JSON',
     },
             method: 'POST',
         })
             .then(resp => {
                 // tslint:disable-next-line:no-console
-                console.log(resp, URL, URL + '/api/send');
-                resp.json()
+                console.log(resp, URL);
+                resp.json();
+                this.setState({sentState: 'Successfull'})
+            })
+            .catch(error => {
+                // tslint:disable-next-line:no-console
+                console.error('Failed to fetch', error);
+                this.setState({sentState: 'Failed'})
+
             })
     };
 
