@@ -17,7 +17,10 @@ interface IListState {
 export class List extends React.Component<any, IListState> {
     constructor(props: any) {
         super(props);
-        this.state = {people: [] as any[]} as IListState
+        this.state = {
+            people: [] as any[],
+        } as IListState
+        this.state = {message}
     }
 
     public componentDidMount() {
@@ -59,6 +62,8 @@ export class List extends React.Component<any, IListState> {
 
         return (
             <div className="container">
+                <br/>
+                <textarea value="Set text"/>
                 <div className="row">
                     <div className="col s12 board">
                         <table className="table table-striped table-dark">
