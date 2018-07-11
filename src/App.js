@@ -2,10 +2,10 @@ import * as React from 'react';
 import './App.css';
 
 import logo from './bridgeable.png';
-import {List} from "./message_table";
+import {List} from "./message_table.js";
 
 class App extends React.Component {
-  public render() {
+  render() {
     return (
       <div className="App">
         <header className="App-header">

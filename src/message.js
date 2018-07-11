@@ -1,8 +1,7 @@
 import * as React from "react";
-import {IPerson} from "./message_table";
 
-export default class Message extends React.Component<any, IPerson> {
-    constructor(props: any) {
+export default class Message extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             first_name: props.person['First Name'],
@@ -14,12 +13,12 @@ export default class Message extends React.Component<any, IPerson> {
     }
 
 
-    public changeMessage = (event: any) => {
+    changeMessage = (event) => {
         this.setState({message: (event.target.value)});
     };
 
 
-    public sendSms = () => {
+    sendSms = () => {
         const URL = process.env.REACT_APP_SERVER_URL;
 
         fetch(URL + '/api/send', {
@@ -44,7 +43,7 @@ export default class Message extends React.Component<any, IPerson> {
             })
     };
 
-    public render() {
+    render() {
         return (
             <tr>
                 <td>{this.state.first_name} {this.state.last_name}</td>

@@ -1,26 +1,14 @@
 import * as Papa from 'papaparse'
 import * as React from "react";
-import Message from './message';
+import Message from './message.js';
 
-export interface IPerson{
-    receiver: number,
-    first_name: string,
-    last_name: string,
-    message: string
-    sentState: string
-}
-
-interface IListState {
-    people: [IPerson]
-}
-
-export class List extends React.Component<any, IListState> {
-    constructor(props: any) {
+export class List extends React.Component {
+    constructor(props) {
         super(props);
-        this.state = {people: [] as any[]} as IListState
+        this.state = {people: []}
     }
 
-    public componentDidMount() {
+    componentDidMount() {
         const parseData = () => {
             let data;
             const csv = require('./DummyData.csv');
@@ -28,7 +16,7 @@ export class List extends React.Component<any, IListState> {
             return new Promise((resolve) => {
                 Papa.parse(csv, {
                     complete: (results) => {
-                        data = results.data as [IPerson];
+                        data = results.data;
                         resolve(data);
                     },
                     delimiter: ',',
@@ -42,12 +30,12 @@ export class List extends React.Component<any, IListState> {
         };
 
         parseData().then(data => {
-            return this.setState({people: data} as IListState);
+            return this.setState({people: data});
         })
     }
 
 
-    public render() {
+    render() {
         const rows = [];
         for (let i = 0; i < this.state.people.length; i++) {
             const person = this.state.people[i];

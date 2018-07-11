@@ -3,28 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/papaparse": "^4.5.0",
-    "@types/twilio": "0.0.9",
     "bootstrap": "^3.3.7",
     "papaparse": "^4.5.0",
     "parcel-bundler": "^1.9.3",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
-    "react-scripts-ts": "2.16.0",
+    "react-scripts": "1.1.4",
     "twilio": "^3.17.4"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
-  },
-  "devDependencies": {
-    "@types/jest": "^23.0.0",
-    "@types/node": "^10.3.1",
-    "@types/react": "^16.4.1",
-    "@types/react-dom": "^16.0.6",
-    "typescript": "^2.9.1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
